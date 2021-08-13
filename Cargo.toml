@@ -1,7 +1,7 @@
 [package]
-name = "egui_template"
+name = "mathkids"
 version = "0.1.0"
-authors = ["Emil Ernerfeldt <emilernerfeldt@gmail.com>"]
+authors = ["Johann Woelper <woelper@gmail.com>"]
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -11,16 +11,14 @@ crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 eframe = "0.9.0" # Gives us egui, epi and web+native backends
-
-serde = { version = "1", features = ["derive"], optional = true }
+mathtutor = {path = "../mathtutor"}
+serde = { version = "1.0.123", features = ["derive"], optional = true }
 
 [features]
-default = []
+default = ["persistence"]
 http = ["eframe/http"] # Enable if you want to do http requests
 persistence = ["eframe/persistence", "serde"] # Enable if you want to persist app state on shutdown
 
 [profile.release]
 opt-level = 2 # fast and small wasm
 
-# [patch.crates-io]
-# eframe = { path = "../egui/eframe" }
